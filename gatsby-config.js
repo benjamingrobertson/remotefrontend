@@ -32,14 +32,6 @@ module.exports = {
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-advanced-sitemap',
     {
-      resolve: 'gatsby-plugin-hubspot',
-      options: {
-        trackingCode: '6477896',
-        respectDNT: true,
-        productionOnly: true
-      }
-    },
-    {
       resolve: 'gatsby-source-wordpress',
       options: {
         baseUrl: process.env.SRC_URL,
@@ -151,9 +143,7 @@ module.exports = {
                 return Object.assign({}, edge.node, {
                   title: `${edge.node.title}`,
                   description: edge.node.excerpt,
-                  url: `${site.siteMetadata.siteUrl}/articles/${
-                    edge.node.slug
-                  }`,
+                  url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
                   guid: edge.node.id,
                   date: edge.node.date,
                   custom_elements: [{ 'content:encoded': edge.node.content }]

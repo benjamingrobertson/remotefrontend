@@ -40,6 +40,7 @@ export default class Editor extends React.Component {
             formats={formats}
             defaultValue={this.props.value}
             onChange={(value) => this.props.handleChange(value)}
+            data-hj-whitelist
           />
         )}
       </div>

@@ -25,6 +25,8 @@ exports.handler = function(event, context, callback) {
   const data = JSON.parse(event.body);
   const form = data.form;
 
+  console.log({ form });
+
   // Make sure we have all required data. Otherwise, escape.
   if (!data.token || !data.amount || !data.idempotency_key) {
     callback(null, {

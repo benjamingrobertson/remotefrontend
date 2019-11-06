@@ -95,9 +95,9 @@ class PostAJob extends React.Component {
     this.setState((prevState) => {
       const featured = prevState.form.featured;
       const cost = featured ? Number(value) + 50 : Number(value);
-      return ({
+      return {
         cost
-      });
+      };
     });
   }
 
@@ -122,7 +122,12 @@ class PostAJob extends React.Component {
         />
         <div className={styles.container}>
           <h1>Post a job on Front End Remote Jobs</h1>
-          <p><em>Now through the end of the year, all job listings are pay what you want!</em></p>
+          <p>
+            <em>
+              Now through the end of the year, all job listings are pay what you
+              want!
+            </em>
+          </p>
           <p>
             Front end remote jobs reaches the <strong>2800+</strong> of the{' '}
             <em>best</em> front end web developers looking for remote work.
@@ -142,7 +147,10 @@ class PostAJob extends React.Component {
             <figcaption>Monthly pageviews thru October 2019</figcaption>
           </figure>
           <p>
-            <strong>Job listings last for 30 days, and <s>start at $99</s> pay what you want!!</strong>
+            <strong>
+              Job listings last for 30 days, and <s>start at $99</s> pay what
+              you want!!
+            </strong>
           </p>
           <p>
             To get started, fill out the form below, preview your listing, and
@@ -163,6 +171,7 @@ class PostAJob extends React.Component {
                     name="title"
                     id="title"
                     required
+                    data-hj-whitelist
                   />
                 </div>
                 <div>
@@ -176,6 +185,7 @@ class PostAJob extends React.Component {
                     name="company"
                     id="company"
                     required
+                    data-hj-whitelist
                   />
                 </div>
               </div>
@@ -194,6 +204,7 @@ class PostAJob extends React.Component {
                   name="url"
                   id="url"
                   required
+                  data-hj-whitelist
                 />
               </div>
               <div>
@@ -210,6 +221,7 @@ class PostAJob extends React.Component {
                   name="teaser"
                   id="teaser"
                   rows="2"
+                  data-hj-whitelist
                 />
               </div>
               {/* <div>
@@ -285,6 +297,7 @@ class PostAJob extends React.Component {
                     aria-describedby="featured-post-desc"
                     onChange={this.handlePromotionChange}
                     value={99}
+                    data-hj-whitelist
                   />
                   ✨Featured Post ✨(adds $99)
                 </label>
@@ -302,11 +315,26 @@ class PostAJob extends React.Component {
             <fieldset className={styles.fieldset}>
               <legend>💸 Payment</legend>
               <div>
-                <label className={styles.label} htmlFor="price">Pay what you want pricing!!</label>
-                <span className={styles.helpText}>From now until the end of the year all job listings are pay what you want!</span>
+                <label className={styles.label} htmlFor="price">
+                  Pay what you want pricing!!
+                </label>
+                <span className={styles.helpText}>
+                  From now until the end of the year all job listings are pay
+                  what you want!
+                </span>
                 <div className={styles.paymentField}>
                   <span>$</span>
-                  <input className={styles.input} required min="1" defaultValue={this.state.cost} onChange={this.handlePriceChange} type="number" name="price" id="price"/>
+                  <input
+                    className={styles.input}
+                    required
+                    min="1"
+                    defaultValue={this.state.cost}
+                    onChange={this.handlePriceChange}
+                    type="number"
+                    name="price"
+                    id="price"
+                    data-hj-whitelist
+                  />
                 </div>
               </div>
               <Checkout
