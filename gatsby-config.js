@@ -32,14 +32,6 @@ module.exports = {
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-advanced-sitemap',
     {
-      resolve: 'gatsby-plugin-hubspot',
-      options: {
-        trackingCode: '6477896',
-        respectDNT: true,
-        productionOnly: true
-      }
-    },
-    {
       resolve: 'gatsby-source-wordpress',
       options: {
         baseUrl: process.env.SRC_URL,
@@ -89,6 +81,13 @@ module.exports = {
           // Setting this parameter is also optional
           respectDNT: true
         }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-hotjar',
+      options: {
+        id: 1359108,
+        sv: 6
       }
     },
     {
