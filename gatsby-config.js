@@ -84,13 +84,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-hotjar',
-      options: {
-        id: 1359108,
-        sv: 6
-      }
-    },
-    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `
@@ -150,9 +143,7 @@ module.exports = {
                 return Object.assign({}, edge.node, {
                   title: `${edge.node.title}`,
                   description: edge.node.excerpt,
-                  url: `${site.siteMetadata.siteUrl}/articles/${
-                    edge.node.slug
-                  }`,
+                  url: `${site.siteMetadata.siteUrl}/articles/${edge.node.slug}`,
                   guid: edge.node.id,
                   date: edge.node.date,
                   custom_elements: [{ 'content:encoded': edge.node.content }]
