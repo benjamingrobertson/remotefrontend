@@ -11,3 +11,5 @@ yarn-error.log
 og_image/
 
 .vscode/
+
+static/storybook/
