@@ -1,107 +1,162 @@
-import React from 'react';
+import React, { Component } from 'react';
+import styles from './checkout.module.scss';
 import uuid from 'uuid';
 
-const amount = 900;
+export default class Checkout extends Component {
+  constructor() {
+    super();
+    this.state = {
+      loading: false,
+      message: '',
+      disabled: false,
+      buttonText: ''
+    };
 
-// Below is where the checkout component is defined.
-// It has several functions and some default state variables.
-const Checkout = class extends React.Component {
-  state = {
-    disabled: false,
-    buttonText: 'Sign me up!',
-    paymentMessage: '',
-  };
-
-  resetButton() {
-    this.setState({ disabled: false, buttonText: 'Sign me up!' });
+    this.openStripeCheckout = this.openStripeCheckout.bind(this);
+    this.handleCheckoutClick = this.handleCheckoutClick.bind(this);
+    this.validateForm = this.validateForm.bind(this);
+    this.getFormValues = this.getFormValues.bind(this);
   }
 
   componentDidMount() {
+    this.setState({
+      buttonText: this.props.buttonText
+    });
+
     this.stripeHandler = window.StripeCheckout.configure({
       // You’ll need to add your own Stripe public key to the `checkout.js` file.
       // key: 'pk_test_STRIPE_PUBLISHABLE_KEY',
-      key: 'pk_test_okjVYrTDsEVOKIlfdR3RhS1Z',
+      key: this.props.data.site.siteMetadata.stripePublishableKey,
       closed: () => {
-        this.resetButton();
-      },
+        this.setState({
+          loading: false,
+          buttonText: this.props.buttonText
+        });
+      }
     });
   }
 
+  getFormValues() {
+    const form = this.props.form.current;
+    const values = {};
+    for (let i = 0; i < form.elements.length; i++) {
+      const element = form.elements[i];
+      if (element.value) {
+        values[element.name] = element.value;
+      }
+    }
+    return values;
+  }
+
+  validateForm() {
+    const form = this.props.form.current;
+    const inputs = form.querySelectorAll('input, textarea');
+
+    // Trigger validation on each form field.
+    for (let i = 0; i < inputs.length; i++) {
+      const element = inputs[i];
+      const isValid = element.checkValidity();
+      if (!isValid) {
+        element.classList.add('error');
+      } else {
+        element.classList.remove('error');
+      }
+    }
+  }
+
+  handleCheckoutClick(e) {
+    e.preventDefault();
+    if (this.props.isValid()) {
+      this.validateForm();
+      this.setState({
+        buttonText: 'Loading...',
+        message: ''
+      });
+      this.openStripeCheckout(e);
+    } else {
+      this.setState({
+        buttonText: this.props.buttonText,
+        message:
+          'The form has errors. Please make sure to fill in all required fields and try again.'
+      });
+      this.validateForm();
+    }
+  }
+
   openStripeCheckout(event) {
-    const { lambdaEndpoint } = this.props;
-    event.preventDefault();
-    this.setState({ disabled: true, buttonText: 'Loading...' });
+    this.setState({ loading: true, buttonText: 'Loading...' });
     this.stripeHandler.open({
-      name: 'FE Remote Job Alerts',
-      amount: amount,
-      description: 'Subscription for instant job alerts',
+      name: 'Front End Remote Jobs',
+      amount: this.props.amount,
+      description: 'Job listing',
       zipCode: true,
-      token: token => {
-        fetch(lambdaEndpoint, {
+      token: (token) => {
+        fetch(this.props.data.site.siteMetadata.purchaseEndpoint, {
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify({
-            token,
-            amount,
+            token: token.id,
+            amount: this.props.amount,
             idempotency_key: uuid(),
+            email: token.email,
+            form: this.props.formValues
           }),
           headers: new Headers({
-            'Content-Type': 'application/json',
-          }),
+            'Content-Type': 'application/json'
+          })
         })
-          .then(res => {
-            console.log('Transaction processed successfully');
+          .then((res) => {
+            // console.log('Transaction processed successfully');
             console.log(res);
 
             if (res.status === 200) {
+              if (typeof window !== undefined && window.gtag) {
+                window.gtag('event', 'jobPost', {
+                  event_category: 'jobPost',
+                  event_action: 'success',
+                  event_label: this.props.amount
+                });
+              }
               this.setState({
-                paymentMessage:
-                  '🙌 Thanks for signing up! Go check your ✉️ email for more details',
+                disabled: true,
+                message:
+                  '✅ Success! Your job listing should be live within 24 hours.'
               });
             } else {
-              this.resetButton();
+              // this.resetButton();
               this.setState({
-                paymentMessage:
-                  'Uh oh, something went wrong 😬. Please try again, or send an email to hi@frontendremotejobs.com for support.',
+                message:
+                  'Uh oh, something went wrong 😬. Please try again, or send an email to ben@frontendremotejobs.com for support.'
               });
             }
 
             return res;
           })
-          .catch(error => {
+          .catch((error) => {
             console.error('Error:', error);
-            this.resetButton();
             this.setState({
-              paymentMessage:
-                'Uh oh, something went wrong. Please try again, or send an email to hi@frontendremotejobs.com for support.',
+              message:
+                'Uh oh, something went wrong. Please try again, or send an email to ben@frontendremotejobs.com for support.'
             });
           });
-      },
+      }
     });
   }
-
   render() {
+    const { buttonText } = this.props;
+    const { loading, message, disabled } = this.state;
     return (
-      <div>
-        <h2>Front End Remote Jobs: Premium</h2>
-        <p>
-          Get instant alerts when new jobs are added and be one of the first to
-          apply!
-        </p>
-        <p>
-          Use any email, 4242 4242 4242 4242 as the credit card number, any 3
-          digit number, and any future date of expiration.
-        </p>
+      <>
         <button
-          onClick={event => this.openStripeCheckout(event)}
-          disabled={this.state.disabled}
+          onClick={this.handleCheckoutClick}
+          type="submit"
+          className={styles.submit}
+          disabled={loading || disabled}
         >
-          {this.state.buttonText}
+          {buttonText}
         </button>
-        <p>{this.state.paymentMessage}</p>
-      </div>
+        {message && <p>{message}</p>}
+      </>
     );
   }
-};
-
-export default Checkout;
+}

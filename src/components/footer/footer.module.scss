@@ -1,27 +1,24 @@
 @import '../../utilities/init';
 
 .footer {
-  align-content: center;
-  background-color: #00645d;
-  justify-content: center;
-  padding: 1em 5px;
+  max-width: 40rem;
+  margin: 0 auto 2em;
   text-align: center;
+  padding: 0 1rem 2em;
+
+  @media screen and (min-width: 550px) {
+    padding-bottom: 0;
+  }
+
+  p {
+    margin-top: 1.75em;
+  }
+
+  a {
+    @include font-secondary;
+  }
 }
 
-.sticky {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-}
-
-.footer .strike {
-  text-decoration: line-through;
-}
-
-.footer a {
-  @include font-secondary;
-  color: white;
-  letter-spacing: 0.025em;
-  font-size: 1.2rem;
+.nav {
+  font-size: 0.8em;
 }

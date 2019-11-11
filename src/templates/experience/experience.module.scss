@@ -1,0 +1,24 @@
+@import '../../utilities/init';
+
+.container {
+
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.title {
+  @include font-secondary;
+  margin-bottom: 0.25em;
+}
+
+.description {
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+}
+
+.jobs {
+  margin-top: 4rem;
+}

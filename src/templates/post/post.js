@@ -1,47 +1,27 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import Helmet from 'react-helmet';
-import striptags from 'striptags';
 import { graphql } from 'gatsby';
+import moment from 'moment';
 
-import styles from './post.module.css';
+import JobListing from '../../components/job-listing/job-listing';
 
-const Post = ({ data, location }) => {
+const Post = ({ data }) => {
   const post = data.wordpressWpJobs;
-
-  // Strip html from excerpts.
-  const description = striptags(post.excerpt);
-
-  const title = `${
-    post.title
-    // TODO: this should be css.
-  } <span style="font-weight: normal;font-family: 'Lora', sans-serif; font-style: italic; text-transform: lowercase; font-size: 0.64em">at</span> ${
-    post.acf.company
-  }`;
+  const validThrough = moment(post.rawDate)
+    .add(1, 'months')
+    .format('YYYY-MM-DD');
 
   return (
-    <>
-      <Helmet
-        title={`${post.title} at ${post.acf.company}`}
-        meta={[{ name: 'description', description }]}
-      />
-      <article className={styles.wrapper}>
-        <h1
-          className={styles.title}
-          dangerouslySetInnerHTML={{ __html: title }}
-        />
-        <OutboundLink href={post.acf.apply_url}>Apply Now</OutboundLink>
-        <div
-          className={styles.content}
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-        <div className={styles.cta}>
-          <OutboundLink href={post.acf.apply_url}>Apply Now</OutboundLink>
-          <Link to="/">Back to Listings</Link>
-        </div>
-      </article>
-    </>
+    <JobListing
+      title={post.title}
+      excerpt={post.excerpt}
+      content={post.content}
+      company={post.acf.company}
+      url={post.acf.apply_url}
+      datePosted={post.datePosted}
+      validThrough={validThrough}
+      inUSA={post.acf.inUSA}
+      slug={post.slug}
+    />
   );
 };
 
@@ -52,9 +32,13 @@ export const query = graphql`
     wordpressWpJobs(id: { eq: $id }) {
       title
       excerpt
+      datePosted: date(formatString: "YYYY-MM-DD")
+      rawDate: date
+      slug
       acf {
         company
         apply_url
+        inUSA: in_usa
       }
       content
     }

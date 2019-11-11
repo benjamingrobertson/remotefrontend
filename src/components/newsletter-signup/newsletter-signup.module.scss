@@ -2,6 +2,22 @@
 
 .formContainer {
   margin-bottom: 1.5em;
+  font-size: .9em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media screen and (min-width: 320px){
+    justify-content: space-evenly;
+  }
+
+  @media screen and (min-width: 400px){
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 992px){
+    font-size: 0.7em;
+  }
 }
 
 .formContainer input,
@@ -18,16 +34,21 @@
   font-size: 1em;
   padding: 0.25em;
   border: 1px solid grey;
-  margin-right: 1em;
+
+
+  @media screen and (min-width: 400px){
+    margin-right: 1em;
+  }
 }
 
 .formContainer button {
-  font-size: 1em;
+  font-size: 1.25em;
   padding: 0.25em 0.5em;
   background-color: $blue-stone;
   color: white;
   text-transform: uppercase;
   border: 1px solid $blue-stone;
+  cursor: pointer;
 }
 
 .formContainer > div > div {

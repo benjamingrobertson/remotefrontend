@@ -3,6 +3,7 @@
 .list {
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 0;
   margin: 0;
@@ -11,6 +12,14 @@
 .navItem {
   margin: 0 0.5em;
   font-size: 1.25em;
+
+  &:last-of-type {
+    display: none;
+
+    @media (min-width: 550px) {
+      display: inline-flex;
+    }
+  }
 }
 
 .link {
@@ -19,6 +28,15 @@
   padding-bottom: 0.025em;
   border-bottom: 1px solid currentColor;
   color: black;
+}
+
+.featured {
+  background-color: $blue-stone;
+  transform: rotate(-2deg);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, .2);
+  display: inline-block;
 }
 
 .active {

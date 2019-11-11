@@ -1,10 +1,10 @@
 @import '../../utilities/init';
 
 .posting {
-  line-height: calc(1.4em + 1vh);
+  line-height: 1.5;
   margin: 0 auto;
   max-width: 50rem;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   position: relative;
 }
 
@@ -13,7 +13,8 @@
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   line-height: 1.2;
-  font-size: calc(1.5em + 1vw);
+  font-size: 1.75rem;
+  position: relative;
 }
 
 .at {
@@ -27,7 +28,7 @@
 .posting p {
   @include font-primary;
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 0;
   margin-bottom: 0.5rem;
 }
@@ -55,6 +56,10 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  .featured {
+    margin-left: 1rem;
+  }
 }
 
 
@@ -68,4 +73,53 @@
   margin: 0.75em 0 1.25em;
   max-width: 70ch;
   line-height: 1.4;
+}
+
+.featured {
+  @include font-secondary;
+  background: lightblue;
+  text-align: center;
+  transform: rotate(-3deg);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  color: #000;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  &:hover,
+  &:focus {
+    animation: shake 400ms 1
+  }
+}
+
+.tag {
+  @include font-secondary;
+  margin-right: 0.25rem;
+  color: #000;
+  border-radius: 5px;
+  font-size: 1rem;
+
+  &:not(:last-of-type)::after {
+    content: ","
+  }
+}
+
+
+@keyframes shake {
+  25% {
+    transform: rotate(1deg);
+  }
+
+  50% {
+    transform: rotate(-1deg);
+  }
+
+  75% {
+    transform: rotate(1deg);
+  }
+
+  100% {
+    transform: rotate(-2deg);
+  }
 }

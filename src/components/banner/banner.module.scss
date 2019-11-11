@@ -1,0 +1,31 @@
+@import '../../utilities/init';
+
+.banner {
+  align-content: center;
+  background-color: #00645d;
+  justify-content: center;
+  text-align: center;
+  display: none;
+}
+
+.sticky {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  display: block;
+}
+
+.banner .strike {
+  text-decoration: line-through;
+}
+
+.banner a {
+  @include font-secondary;
+  color: white;
+  letter-spacing: 0.025em;
+  font-size: 1rem;
+  display: block;
+  padding: 0.8rem 5px;
+  text-decoration: none;
+}

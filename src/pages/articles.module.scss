@@ -1,0 +1,33 @@
+@import '../utilities/init';
+
+.container {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.article {
+  margin-bottom: 2em;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.excerpt {
+  font-size: 1.3rem;
+  line-height: 1.55;
+}
+
+.link {
+  @include font-secondary;
+}
+
+.date {
+  font-style: italic;
+}
+
+:global {
+  .more-link {
+    display: none;
+  }
+}

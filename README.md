@@ -22,7 +22,7 @@ The Gatsby front end for [Front End Remote Jobs](https://frontendremotejobs.com)
 
 ## Deployment
 
-Pushing to the `develop` branch automatically deploys to netlify.
+Pushing to the `master` branch automatically deploys to netlify.
 
 ## Important Notes
 

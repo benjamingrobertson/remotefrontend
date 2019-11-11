@@ -1,33 +1,41 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
-import moment from 'moment';
+import SEO from '../components/seo';
+import styles from './articles.module.scss';
 
-import styles from './index.module.css';
-
-const Blog = ({ data, location }) => {
+const Blog = ({ data }) => {
   const articles = data.allWordpressPost.edges;
   return (
-    <div className="index-container">
-      <Helmet
-        title={'Blog | Front End Remote Jobs'}
-        meta={[
-          {
-            name: 'description',
-            description: 'Fully remote jobs for front end developers.',
-          },
-        ]}
+    <>
+      <SEO
+        title="Articles | Front End Remote Jobs"
+        description="Articles and resources for helping front end developers get remote jobs."
+        image="https://frontendremotejobs.com/og_image/articles.png"
       />
+
       <div className={styles.container}>
-        {articles.map(({ node }) => (
-          <>
-            <h2>{node.title}</h2>
-            <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            <Link to={`/articles/${node.slug}`}>Read More</Link>
-          </>
-        ))}
+        <div>
+          {articles.map(({ node }) => (
+            <article key={node.title} className={styles.article}>
+              <h2 className={styles.title}>{node.title}</h2>
+              <p className={styles.date}>{node.date}</p>
+              <div
+                className={styles.excerpt}
+                dangerouslySetInnerHTML={{ __html: node.excerpt }}
+              />
+              <Link
+                aria-label={`Read ${node.title}`}
+                className={styles.link}
+                to={`/articles/${node.slug}`}
+              >
+                Read Now =>
+              </Link>
+            </article>
+          ))}
+        </div>
+        <aside />
       </div>
-    </div>
+    </>
   );
 };
 
@@ -46,6 +54,7 @@ export const query = graphql`
           status
           title
           excerpt
+          date(formatString: "MMMM D, Y")
         }
       }
     }

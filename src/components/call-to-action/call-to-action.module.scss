@@ -1,0 +1,13 @@
+@import '../../utilities/init';
+
+.cta {
+  @include font-primary;
+
+  p {
+    line-height: 1.55;
+  }
+
+  a {
+    @include font-secondary;
+  }
+}

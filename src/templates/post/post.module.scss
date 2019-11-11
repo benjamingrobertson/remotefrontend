@@ -1,14 +1,21 @@
+@import '../../utilities/init';
+
 .content {
   margin-top: 2em;
+  max-width: 40rem;
+}
+
+.apply {
+  @include font-secondary;
 }
 
 .content p,
 .content ul,
 .content ol,
 .content li {
-  font-family: 'Lora', Georgia, 'Times New Roman', Times, serif;
+  @include font-primary;
   font-style: normal;
-  line-height: 1.4;
+  line-height: 1.55;
 }
 
 .content li {
@@ -43,9 +50,14 @@
 }
 
 .cta a {
+  @include font-secondary;
   margin-right: 1em;
+  margin-bottom: 2em;
+  display: block;
+  font-size: 2em;
 }
 
 .wrapper {
-  max-width: 50rem;
+  max-width: 45rem;
+  margin: 0 auto;
 }

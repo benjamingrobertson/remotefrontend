@@ -1,13 +1,13 @@
 import React from 'react';
 import Layout from './src/components/layout/layout';
 
-export const wrapPageElement = ({ element, props }) => {
+const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;
 };
 
 const transitionDelay = 250;
 
-export const shouldUpdateScroll = ({
+const shouldUpdateScroll = ({
   routerProps: { location },
   getSavedScrollPosition,
 }) => {
@@ -16,7 +16,8 @@ export const shouldUpdateScroll = ({
       () => window.scrollTo({ top: 0, left: 0 }),
       transitionDelay
     );
-  } else {
+  }
+  else {
     const savedPosition = getSavedScrollPosition(location);
     window.setTimeout(
       () => window.scrollTo(...(savedPosition || [0, 0])),
@@ -25,3 +26,16 @@ export const shouldUpdateScroll = ({
   }
   return false;
 };
+
+const onServiceWorkerUpdateReady = () => {
+  const answer = window.confirm(
+    'This application has been updated. ' +
+      'Reload to display the latest version?'
+  );
+
+  if (answer === true) {
+    window.location.reload();
+  }
+};
+
+export { onServiceWorkerUpdateReady, shouldUpdateScroll, wrapPageElement };

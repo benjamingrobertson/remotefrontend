@@ -1,7 +1,6 @@
 import React from 'react';
 import striptags from 'striptags';
-import styles from './featured-job.module.css';
-import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import styles from './featured-job.module.scss';
 import { Link } from 'gatsby';
 
 const FeaturedJob = ({ post }) => {
@@ -27,7 +26,9 @@ const FeaturedJob = ({ post }) => {
         </div>
       )}
       <div>
-        <Link to={`/jobs/${post.slug}`}>View Job</Link>
+        <Link className={styles.link} to={`/jobs/${post.slug}`}>
+          View Job =>
+        </Link>
       </div>
     </div>
   );

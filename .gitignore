@@ -8,6 +8,6 @@ yarn-error.log
 /public
 /lambda
 .DS_Store
+og_image/
 
-# Secrets
-.env
+.vscode/

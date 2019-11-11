@@ -1,0 +1,16 @@
+@import '../../utilities/init';
+
+.label {
+  @include font-secondary;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.link {
+  @include font-secondary;
+}
+
+p {
+  @include font-primary;
+  line-height: 1.55;
+}

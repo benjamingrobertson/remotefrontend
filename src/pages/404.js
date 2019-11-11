@@ -1,11 +1,17 @@
 import React from 'react';
-import Layout from '../components/layout/layout';
+import CallToAction from '../components/call-to-action/call-to-action';
+
+import styles from './articles.module.scss';
 
 const NotFoundPage = () => (
-  <Layout>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+  <div className={styles.container}>
+    <h1>404</h1>
+    <p>
+      The page you were looking for doesn't exist--but that doesn't mean the job
+      you were looking for doesn't exist!
+    </p>
+    <CallToAction />
+  </div>
 );
 
 export default NotFoundPage;

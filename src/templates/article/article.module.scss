@@ -3,12 +3,26 @@
 
 .title {
   @include font-secondary;
+  margin-bottom: 1em;
+}
+
+.meta {
+  @include font-primary;
+  margin-bottom: 1.5em;
 }
 
 .content {
   @include font-primary;
-  max-width: 70ch;
-  line-height: 1.5;
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.55;
+    margin-bottom: 1.5em;
+  }
+
+  & > p:first-of-type {
+    font-size: 1.5em;
+  }
 
   blockquote {
     background: #eee;
@@ -18,12 +32,14 @@
     margin-right: 1em;
     margin-top: 2em;
     margin-left: 1em;
-    padding: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: 1em 2em;
 
     @media (min-width: 700px) {
       margin-left: 2em;
+    }
+
+    p:last-child {
+      margin-bottom: 1em;
     }
   }
 
@@ -41,8 +57,27 @@
     margin-top: 2em;
   }
 
-  p {
-    font-size: 1.2em;
+  a {
+    text-transform: none;
+    font-family: inherit;
+    font-weight: normal;
+
+    /* For handling wrapping */
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
 }
 
@@ -50,16 +85,12 @@
   font-size: 2.5rem;
 }
 
-.content > p:first-of-type {
-  font-size: 1.7em;
-}
+// .content > p:first-of-type {
+//   font-size: 1.7em;
+// }
 
 
-.content a {
-  text-transform: none;
-  font-family: inherit;
-  font-weight: normal;
-}
+
 
 .sidebar {
   margin-top: 3em;
@@ -67,22 +98,23 @@
 }
 
 .grid > div:first-child {
-  max-width: 45rem;
+  max-width: 40rem;
 }
 
 @media (min-width: 1200px) {
   .grid {
     display: grid;
-    grid-template-columns: 45rem 1fr;
-    grid-gap: 2rem;
+    grid-template-columns: 40rem 1fr;
+    grid-gap: 5rem;
   }
 
   .sidebar {
     margin: 0;
+    margin-top: 5em;
   }
 }
 
 .featured {
   position: sticky;
-  top: 10em;
+  top: 5em;
 }

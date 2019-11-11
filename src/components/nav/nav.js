@@ -1,30 +1,38 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import classnames from 'classnames';
 
 import styles from './nav.module.scss';
 
 const Links = [
   {
     title: 'Jobs',
-    path: '/',
+    path: '/'
   },
   {
     title: 'Articles',
-    path: '/articles',
+    path: '/articles'
   },
   {
     title: 'About',
-    path: '/about',
+    path: '/about'
   },
+  {
+    title: 'Post a Job! (pay what you want)',
+    path: '/post-a-job',
+    featured: true
+  }
 ];
 
 const Nav = () => (
   <nav>
     <ul className={styles.list}>
-      {Links.map(link => (
+      {Links.map((link) => (
         <li key={link.path} className={styles.navItem}>
           <Link
-            className={styles.link}
+            className={classnames(styles.link, {
+              [styles.featured]: link.featured
+            })}
             to={link.path}
             activeClassName={styles.active}
           >

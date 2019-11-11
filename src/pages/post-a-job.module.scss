@@ -1,0 +1,153 @@
+@import '../utilities/init';
+
+.container {
+  max-width: 40rem;
+  margin: 0 auto;
+  @include font-primary;
+
+  p {
+    font-size: 1.2em;
+  }
+
+  figure {
+    margin-top: 2em;
+    margin-bottom: 2em;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  figcaption {
+    font-style: italic;
+  }
+}
+
+.postJobForm {
+  margin-top: 4rem;
+
+  legend {
+    font-size: 1.75rem;
+  }
+
+  :global {
+    .error {
+      border-color: red !important;
+    }
+  }
+
+  legend,
+  label {
+    @include font-secondary;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  li {
+    @include font-primary;
+    line-height: 1.5;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea {
+    @include font-primary;
+    margin-bottom: 2rem;
+    font-size: 1.25rem;
+    border: 1px solid lightgrey;
+    width: 100%;
+    padding: 0.5rem;
+  }
+}
+
+.paymentField {
+  display: block;
+
+  span {
+    font-weight: bold;
+    margin-right: 0.25em;
+  }
+
+  input {
+    max-width: 7ch;
+  }
+}
+
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  @media screen and (min-width: 767px) {
+    > div {
+      flex-basis: 47.5%;
+    }
+  }
+}
+
+.helpText {
+  @include font-primary;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.fieldset {
+  margin-bottom: 2rem;
+  padding: 1rem;
+
+  @media screen and (min-width: 550px) {
+    padding: 2rem;
+  }
+}
+
+.promotionCheckboxGroup {
+  padding: 1rem;
+  background-color: rgba(lightblue, 0.1);
+  transition: 150ms background;
+
+  &:hover {
+    background-color: rgba(lightblue, 0.25);
+  }
+
+  &:focus-within {
+    background-color: rgba(lightblue, 0.25);
+  }
+
+  &.promotionSelected {
+    background-color: rgba(lightblue, 0.4);
+  }
+}
+
+:global(.ql-editor) {
+  background-color: #fff;
+  min-height: 300px;
+}
+
+.preview {
+  margin: 3rem 0;
+}
+
+.actions {
+  button:first-of-type {
+    margin-right: 2rem;
+  }
+}
+
+.textButton {
+  @include font-secondary;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
