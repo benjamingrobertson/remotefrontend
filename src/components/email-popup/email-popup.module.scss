@@ -1,0 +1,56 @@
+@import '../../utilities/init';
+
+.form {
+  display: block;
+  text-align: center;
+
+  input,
+  button {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    font-size: 1.2rem;
+    padding: .75rem;
+    margin: 0 auto 1rem;
+  }
+
+
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  max-width: 650px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fffff8;
+  padding: 3rem 6rem;
+  text-align: center;
+
+  h2 {
+    font-size: 1.7rem;
+  }
+
+  ul {
+    @include font-primary;
+    text-align: left;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+  }
+}

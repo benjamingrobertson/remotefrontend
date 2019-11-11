@@ -27,10 +27,12 @@
     "react-dom": "^16.11.0",
     "react-helmet": "^5.2.1",
     "react-mailchimp-subscribe": "^2.1.0",
+    "react-modal": "^3.11.1",
     "react-pose": "^4.0.9",
     "react-quill": "^1.3.3",
     "stripe": "^6.36.0",
     "striptags": "^3.1.1",
+    "typescript": "^3.7.2",
     "uuid": "^3.3.3",
     "wpapi": "^1.2.1"
   },
@@ -50,13 +52,14 @@
     "serve": "gatsby serve",
     "format": "prettier --write '**/*.js'",
     "build": "gatsby build && npm run build:storybook && npm run build:lambda",
+    "build:gatsby": "gatsby build",
     "build:lambda": "netlify-lambda -c ./webpack.functions.js build lambda-src",
     "build:storybook": "NODE_ENV=production build-storybook --quiet -s ./static -c .storybook -o static/storybook && cpx \"static/storybook/*\" \"public/storybook/\"",
     "lambda-serve": "netlify-lambda -c ./webpack.functions.js serve lambda-src",
     "start": "gatsby develop",
     "test": "jest",
     "test:lighthouse": "start-server-and-test serve http://localhost:9000 test",
-    "storybook": "NODE_ENV=production start-storybook -s ./static -p 6006"
+    "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -68,6 +71,7 @@
     "@storybook/react": "^5.2.6",
     "babel-loader": "^8.0.6",
     "babel-plugin-macros": "^2.6.1",
+    "babel-plugin-remove-graphql-queries": "^2.7.15",
     "babel-preset-gatsby": "^0.2.20",
     "chrome-launcher": "^0.10.7",
     "cli-table": "^0.3.1",
