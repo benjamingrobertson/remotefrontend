@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import Form from '../newsletter-signup/form';
 import styles from './email-popup.module.scss';
 
+Modal.setAppElement('#___gatsby');
+
 const EmailPopup = () => {
   const [open, setOpen] = useState(true);
 
@@ -30,7 +32,7 @@ const EmailPopup = () => {
           setOpen(false);
         }}
       >
-        Close modal
+        Close
       </button>
     </Modal>
   );
