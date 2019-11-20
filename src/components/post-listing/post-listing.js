@@ -75,7 +75,11 @@ const PostListing = ({ post, rawDate }) => {
           <p className={styles.date}>{post.date}</p>
         )}
       </div>
-      {tags && <TagLinks tags={tags} />}
+      {tags && (
+        <div className={styles.tags}>
+          <TagLinks tags={tags} />
+        </div>
+      )}
 
       {post.snippet && (
         <div className={styles.snippet}>
@@ -99,7 +103,7 @@ PostListing.propTypes = {
   company: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired
 };
 
 export default PostListing;
