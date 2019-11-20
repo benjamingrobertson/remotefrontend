@@ -8,7 +8,6 @@ const ExitIntent = () => {
 
   useEffect(() => {
     const handleMouseOut = (e) => {
-      console.log(e.toElement, e.relatedTarget);
       if (e.toElement === null && e.relatedTarget === null) {
         setShowModal(true);
       }
