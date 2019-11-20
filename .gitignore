@@ -6,6 +6,10 @@ yarn-error.log
 
 # Build directory
 /public
-.DS_Store
 /lambda
+.DS_Store
 og_image/
+
+.vscode/
+
+static/storybook/

@@ -1,5 +1,6 @@
 import React from 'react';
 import posed, { PoseGroup } from 'react-pose';
+import uuid from 'uuid';
 
 const transitionDuration = 200;
 const transitionDelay = 250;
@@ -18,7 +19,9 @@ const PageTransition = ({ children, location }) => (
   <>
     <div>
       <PoseGroup>
-        <Transition key={location ? location.pathname : '' }>{children}</Transition>
+        <Transition key={location ? location.pathname : uuid()}>
+          {children}
+        </Transition>
       </PoseGroup>
     </div>
   </>

@@ -105,6 +105,11 @@
   }
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
 @keyframes shake {
   25% {

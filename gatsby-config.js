@@ -19,8 +19,8 @@ module.exports = {
       proxy({
         target: 'http://localhost:9000',
         pathRewrite: {
-          '/.netlify/functions/': ''
-        }
+          '/.netlify/functions/': '',
+        },
       })
     );
   },
@@ -39,8 +39,8 @@ module.exports = {
         hostingWPCOM: false,
         useACF: true,
         auth: {
-          // If auth.user and auth.pass are filled, then the source plugin will be allowed
-          // to access endpoints that are protected with .htaccess.
+          // If auth.user and auth.pass are filled, then the source plugin will
+          // be allowed to access endpoints that are protected with .htaccess.
           htaccess_user: process.env.auth_user,
           htaccess_pass: process.env.auth_pw
         },

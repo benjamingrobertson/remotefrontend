@@ -1,5 +1,6 @@
 import React from 'react';
 import striptags from 'striptags';
+import PropTypes from 'prop-types';
 import styles from './post-listing.module.scss';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { Link } from 'gatsby';
@@ -74,7 +75,11 @@ const PostListing = ({ post, rawDate }) => {
           <p className={styles.date}>{post.date}</p>
         )}
       </div>
-      {tags && <TagLinks tags={tags} />}
+      {tags && (
+        <div className={styles.tags}>
+          <TagLinks tags={tags} />
+        </div>
+      )}
 
       {post.snippet && (
         <div className={styles.snippet}>
@@ -93,6 +98,12 @@ const PostListing = ({ post, rawDate }) => {
   );
 };
 
-PostListing.propTypes = {};
+PostListing.propTypes = {
+  title: PropTypes.string.isRequired,
+  company: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired
+};
 
 export default PostListing;

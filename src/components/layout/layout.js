@@ -11,6 +11,7 @@ import '../../utilities/fonts/_fonts.scss';
 import '../../global.scss';
 import styles from './layout.module.scss';
 import Banner from '../banner/banner';
+import ExitIntent from '../email-popup';
 
 const Layout = ({ children, location }) => (
   <StaticQuery
@@ -42,6 +43,7 @@ const Layout = ({ children, location }) => (
           <Banner location={location} />
           <Footer />
         </PageTransition>
+        <ExitIntent />
       </>
     )}
   />
