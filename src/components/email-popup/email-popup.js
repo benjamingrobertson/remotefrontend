@@ -12,13 +12,13 @@ const EmailPopup = () => {
   return (
     <Modal
       isOpen={open}
-      contentLabel="Example Modal"
+      contentLabel="Get jobs delivered to your inbox every friday."
       className={styles.modal}
       overlayClassName={styles.overlay}
     >
       <h2>
-        Join <span className={styles.underline}>294</span> front end devs
-        getting remote jobs delivered every Friday.
+        Join <span className={styles.underline}>300+</span> front end devs
+        getting remote jobs delivered every Friday!
       </h2>
       <ul>
         <li>✨ New jobs every week</li>
@@ -28,7 +28,9 @@ const EmailPopup = () => {
       </ul>
       <Form className={styles.form} action="exit" />
       <button
+        className={styles.close}
         onClick={() => {
+          localStorage.setItem('hideExitIntent', 'true');
           setOpen(false);
         }}
       >

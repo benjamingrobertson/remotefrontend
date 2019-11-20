@@ -13,8 +13,13 @@
     padding: .75rem;
     margin: 0 auto 1rem;
   }
+}
 
-
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  appearance: none;
 }
 
 .underline {
@@ -38,8 +43,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fffff8;
-  padding: 3rem 6rem;
   text-align: center;
+  padding: 3rem 2rem;
+  width: 80%;
+
+
+  @media screen and (min-width: 1024px) {
+    padding: 3rem 6rem;
+  }
 
   h2 {
     font-size: 1.7rem;

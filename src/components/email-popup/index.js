@@ -1,20 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import EmailPopup from './email-popup';
 import useWindowWidth from '../../useWindowWidth';
 
 const ExitIntent = () => {
   const width = useWindowWidth();
+  const [showModal, setShowModal] = useState(false);
 
-  if (width >= 1024) {
-    document.addEventListener('mouseout', (e) => {
+  useEffect(() => {
+    const handleMouseOut = (e) => {
+      console.log(e.toElement, e.relatedTarget);
       if (e.toElement === null && e.relatedTarget === null) {
-        return <EmailPopup />;
+        setShowModal(true);
       }
-    });
-  }
+    };
 
-  setTimeout(() => <EmailPopup />, 60000);
+    if (width >= 1024) {
+      document.addEventListener('mouseout', handleMouseOut);
+    }
+ else {
+      setTimeout(() => {
+        if (typeof window !== 'undefined') {
+          setShowModal(true);
+        }
+      }, 1000);
+    }
+
+    return () => {
+      document.removeEventListener('mouseout', handleMouseOut);
+    };
+  });
+
+  return showModal && <EmailPopup />;
 };
 
 ExitIntent.propTypes = {};
