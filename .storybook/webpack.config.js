@@ -38,12 +38,5 @@ module.exports = ({ config }) => {
     ]
   });
 
-  // Exclude SVGs from the default config so we can use svg-react-loader.
-  config.module.rules[3].exclude = /\.svg$/;
-  config.module.rules.push({
-    test: /\.svg$/,
-    loader: 'svg-react-loader'
-  });
-
   return config;
 };

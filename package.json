@@ -51,7 +51,7 @@
     "prod": "gatsby build && gatsby serve",
     "serve": "gatsby serve",
     "format": "prettier --write '**/*.js'",
-    "build": "gatsby build && npm run build:storybook && npm run build:lambda",
+    "build": "gatsby build && npm run build:lambda",
     "build:gatsby": "gatsby build",
     "build:lambda": "netlify-lambda -c ./webpack.functions.js build lambda-src",
     "build:storybook": "NODE_ENV=production build-storybook --quiet -s ./static -c .storybook -o static/storybook && cpx \"static/storybook/*\" \"public/storybook/\"",

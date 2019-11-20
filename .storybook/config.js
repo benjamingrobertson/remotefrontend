@@ -29,14 +29,13 @@ window.___navigate = (pathname) => {
 };
 
 // Enable additional information panel.
-addDecorator(
-  withInfo({
-    header: false // Global configuration for the info addon across all of your stories.
-  })
-);
+// addDecorator(
+//   withInfo({
+//     header: false // Global configuration for the info addon across all of your stories.
+//   })
+// );
 
 // Enable the accessibility panel.
-addDecorator(withA11y);
+// addDecorator(withA11y);
 
 configure(loadStories, module);
-
