@@ -22,7 +22,7 @@ const ExitIntent = () => {
         if (typeof window !== 'undefined') {
           setShowModal(true);
         }
-      }, 1000);
+      }, 60000);
     }
 
     return () => {
