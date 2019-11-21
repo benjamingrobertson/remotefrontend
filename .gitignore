@@ -13,3 +13,4 @@ og_image/
 .vscode/
 
 static/storybook/
+coverage/
