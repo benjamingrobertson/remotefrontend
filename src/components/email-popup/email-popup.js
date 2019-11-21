@@ -23,10 +23,30 @@ const EmailPopup = () => {
         getting remote jobs delivered every Friday!
       </h2>
       <ul>
-        <li>✨ New jobs every week</li>
-        <li>🏖 Fully remote jobs</li>
-        <li>👩‍💻 Only front end jobs</li>
-        <li>🧼 0.3% unsubscribe rate</li>
+        <li>
+          <span role="img" aria-label="sparkle">
+            ✨
+          </span>{' '}
+          New jobs every week
+        </li>
+        <li>
+          <span role="img" aria-label="beach">
+            🏖
+          </span>{' '}
+          Fully remote jobs
+        </li>
+        <li>
+          <span role="img" aria-label="female programmer">
+            👩‍💻
+          </span>
+          ‍ Only front end jobs
+        </li>
+        <li>
+          <span role="img" aria-label="soap">
+            🧼
+          </span>{' '}
+          0.3% unsubscribe rate
+        </li>
       </ul>
       <Form className={styles.form} action="exit" />
       <button
