@@ -15,8 +15,7 @@ const ExitIntent = () => {
 
     if (width >= 1024) {
       document.addEventListener('mouseout', handleMouseOut);
-    }
- else {
+    } else {
       setTimeout(() => {
         if (typeof window !== 'undefined') {
           setShowModal(true);

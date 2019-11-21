@@ -15,16 +15,38 @@ const EmailPopup = () => {
       contentLabel="Get jobs delivered to your inbox every friday."
       className={styles.modal}
       overlayClassName={styles.overlay}
+      shouldCloseOnOverlayClick={true}
+      onRequestClose={() => setOpen(false)}
     >
       <h2>
         Join <span className={styles.underline}>300+</span> front end devs
         getting remote jobs delivered every Friday!
       </h2>
       <ul>
-        <li>✨ New jobs every week</li>
-        <li>🏖 Fully remote jobs</li>
-        <li>👩‍💻 Only front end jobs</li>
-        <li>🧼 0.3% unsubscribe rate</li>
+        <li>
+          <span role="img" aria-label="sparkle">
+            ✨
+          </span>{' '}
+          New jobs every week
+        </li>
+        <li>
+          <span role="img" aria-label="beach">
+            🏖
+          </span>{' '}
+          Fully remote jobs
+        </li>
+        <li>
+          <span role="img" aria-label="female programmer">
+            👩‍💻
+          </span>
+          ‍ Only front end jobs
+        </li>
+        <li>
+          <span role="img" aria-label="soap">
+            🧼
+          </span>{' '}
+          0.3% unsubscribe rate
+        </li>
       </ul>
       <Form className={styles.form} action="exit" />
       <button

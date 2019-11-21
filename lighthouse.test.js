@@ -22,24 +22,20 @@ const launchChromeAndRunLighthouse = (url, opts = {}, config = null) => {
     });
 };
 
-test(
-  'performance audit',
-  async () => {
-    const { lhr } = await launchChromeAndRunLighthouse('http://localhost:9000');
+test('performance audit', async () => {
+  const { lhr } = await launchChromeAndRunLighthouse('http://localhost:9000');
 
-    const scores = Object.keys(lhr.categories).reduce((merged, category) => {
-      merged[category] = lhr.categories[category].score;
-      return merged;
-    }, {});
+  const scores = Object.keys(lhr.categories).reduce((merged, category) => {
+    merged[category] = lhr.categories[category].score;
+    return merged;
+  }, {});
 
-    console.log(output(scores));
+  console.log(output(scores));
 
-    const threshold = 0.85;
+  const threshold = 0.85;
 
-    expect(scores.performance).toBeGreaterThanOrEqual(threshold);
-    expect(scores.accessibility).toBeGreaterThanOrEqual(threshold);
-    expect(scores['best-practices']).toBeGreaterThanOrEqual(threshold);
-    expect(scores.seo).toBeGreaterThanOrEqual(threshold);
-  },
-  10000
-);
+  expect(scores.performance).toBeGreaterThanOrEqual(threshold);
+  expect(scores.accessibility).toBeGreaterThanOrEqual(threshold);
+  expect(scores['best-practices']).toBeGreaterThanOrEqual(threshold);
+  expect(scores.seo).toBeGreaterThanOrEqual(threshold);
+}, 10000);

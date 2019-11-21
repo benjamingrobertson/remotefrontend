@@ -10,9 +10,9 @@ const Transition = posed.div({
     opacity: 1,
     transition: { duration: transitionDuration },
     delay: transitionDelay,
-    beforeChildren: true,
+    beforeChildren: true
   },
-  exit: { opacity: 0, transition: { duration: transitionDuration } },
+  exit: { opacity: 0, transition: { duration: transitionDuration } }
 });
 
 const PageTransition = ({ children, location }) => (
