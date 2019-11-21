@@ -15,6 +15,8 @@ const EmailPopup = () => {
       contentLabel="Get jobs delivered to your inbox every friday."
       className={styles.modal}
       overlayClassName={styles.overlay}
+      shouldCloseOnOverlayClick={true}
+      onRequestClose={() => setOpen(false)}
     >
       <h2>
         Join <span className={styles.underline}>300+</span> front end devs

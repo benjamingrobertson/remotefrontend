@@ -44,16 +44,24 @@
   transform: translate(-50%, -50%);
   background-color: #fffff8;
   text-align: center;
-  padding: 3rem 2rem;
-  width: 80%;
+  width: 90%;
+  padding: 3rem 1rem 0rem;
 
+  @media screen and (min-width: 768px) {
+    padding: 3rem 2rem;
+    width: 80%;
+  }
 
   @media screen and (min-width: 1024px) {
     padding: 3rem 6rem;
   }
 
   h2 {
-    font-size: 1.7rem;
+    font-size: 1.2rem;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.7rem;
+    }
   }
 
   ul {
@@ -61,7 +69,12 @@
     text-align: left;
     line-height: 1.75;
     margin-bottom: 2rem;
-    margin-top: 2rem;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+
+    @media screen and (min-width: 1024px) {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+    }
   }
 }
