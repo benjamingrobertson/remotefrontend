@@ -19,12 +19,19 @@ export const onRenderBody = ({ pathname, setPostBodyComponents }, options) => {
         async
       />,
       // Add hotjar only on post a job.
-      [React.createElement('script', {
-        key: 'hotjar',
-        dangerouslySetInnerHTML: {
-          __html: "\n              (function(h,o,t,j,a,r){\n                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n                  h._hjSettings={hjid:" + id + ",hjsv:" + sv + "};\n                  a=o.getElementsByTagName('head')[0];\n                  r=o.createElement('script');r.async=1;\n                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n                  a.appendChild(r);\n              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')\n          "
-        }
-      })]
+      [
+        React.createElement('script', {
+          key: 'hotjar',
+          dangerouslySetInnerHTML: {
+            __html:
+              '\n              (function(h,o,t,j,a,r){\n                  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n                  h._hjSettings={hjid:' +
+              id +
+              ',hjsv:' +
+              sv +
+              "};\n                  a=o.getElementsByTagName('head')[0];\n                  r=o.createElement('script');r.async=1;\n                  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n                  a.appendChild(r);\n              })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=')\n          "
+          }
+        })
+      ]
     ]);
   }
 };

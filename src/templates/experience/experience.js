@@ -12,9 +12,7 @@ const Experience = ({ data }) => {
   return (
     <>
       <SEO
-        title={`${
-          data.term.name
-        } Remote Front End Developer Jobs | Front End Remote Jobs`}
+        title={`${data.term.name} Remote Front End Developer Jobs | Front End Remote Jobs`}
         description={`${data.jobs.nodes.length} ${
           data.term.name
         } remote front end developer jobs at companies like ${companies.join(

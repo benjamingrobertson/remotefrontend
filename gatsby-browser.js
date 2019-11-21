@@ -9,15 +9,14 @@ const transitionDelay = 250;
 
 const shouldUpdateScroll = ({
   routerProps: { location },
-  getSavedScrollPosition,
+  getSavedScrollPosition
 }) => {
   if (location.action === 'PUSH') {
     window.setTimeout(
       () => window.scrollTo({ top: 0, left: 0 }),
       transitionDelay
     );
-  }
-  else {
+  } else {
     const savedPosition = getSavedScrollPosition(location);
     window.setTimeout(
       () => window.scrollTo(...(savedPosition || [0, 0])),

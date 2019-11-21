@@ -11,9 +11,7 @@ const Tech = ({ data }) => {
   return (
     <>
       <SEO
-        title={`Remote ${
-          data.term.name
-        } Developer Jobs | Front End Remote Jobs`}
+        title={`Remote ${data.term.name} Developer Jobs | Front End Remote Jobs`}
         description={`${data.jobs.nodes.length} remote ${
           data.term.name
         } jobs. Companies like ${companies.join(', ')} are hiring remote ${

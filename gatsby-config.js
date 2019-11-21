@@ -19,8 +19,8 @@ module.exports = {
       proxy({
         target: 'http://localhost:9000',
         pathRewrite: {
-          '/.netlify/functions/': '',
-        },
+          '/.netlify/functions/': ''
+        }
       })
     );
   },

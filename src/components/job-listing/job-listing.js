@@ -33,7 +33,7 @@ const JobListing = ({
     // TODO: this should be css.
   } <span style="font-weight: normal;font-family: 'Lora', sans-serif; font-style: italic; text-transform: lowercase; font-size: 0.64em">at</span> ${company}`;
 
-  const schemaContent = content.replace(/"/g, '\'');
+  const schemaContent = content.replace(/"/g, "'");
 
   const schema = `{
     "@context" : "https://schema.org/",
