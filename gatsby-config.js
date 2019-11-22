@@ -34,10 +34,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-performance-metrics`,
       options: {
-        firstPaint: false,
-        firstContentfulPaint: false,
+        firstPaint: true,
+        firstContentfulPaint: true,
         firstInputDelay: true,
-        useLogging: false,
+        useLogging: true,
         useGoogleAnalytics: true
       }
     },
