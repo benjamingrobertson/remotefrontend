@@ -31,6 +31,7 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-advanced-sitemap',
+    'gatsby-plugin-performance-metrics',
     {
       resolve: 'gatsby-source-wordpress',
       options: {
