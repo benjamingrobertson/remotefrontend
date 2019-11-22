@@ -33,6 +33,16 @@ module.exports = {
     'gatsby-plugin-advanced-sitemap',
     'gatsby-plugin-preact',
     {
+      resolve: `gatsby-plugin-performance-metrics`,
+      options: {
+        firstPaint: false,
+        firstContentfulPaint: false,
+        firstInputDelay: true,
+        useLogging: false,
+        useGoogleAnalytics: true
+      }
+    },
+    {
       resolve: 'gatsby-source-wordpress',
       options: {
         baseUrl: process.env.SRC_URL,
