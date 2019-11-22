@@ -43,8 +43,8 @@ export const onRenderBody = (
                     window.gtag('event', 'Performance Metrics', {
                         event_category: 'Performance Metrics',
                         event_action: metricName,
-                        event_value: time,
-                        nonInteraction: true
+                        value: time,
+                        non_interaction: true
                     });
                  }
             };

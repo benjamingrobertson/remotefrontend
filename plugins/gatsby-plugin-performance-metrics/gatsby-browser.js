@@ -19,8 +19,8 @@ export const onInitialClientRender = async (_, pluginOptions) => {
           event_category: 'Performance Metrics',
           event_action: 'first-input-delay',
           event_label: event.type,
-          event_value: Math.round(delay),
-          nonInteraction: true
+          value: Math.round(delay),
+          non_interaction: true
         });
         /* eslint-enable camelcase */
       }
