@@ -5,8 +5,6 @@ export const onInitialClientRender = async (_, pluginOptions) => {
     pluginOptions
   );
 
-  console.log(pluginOptions);
-
   if (firstInputDelay && window.perfMetrics) {
     window.perfMetrics.onFirstInputDelay((delay, event) => {
       if (useLogging) {
