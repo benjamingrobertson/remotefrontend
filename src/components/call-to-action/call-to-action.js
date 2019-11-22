@@ -12,7 +12,10 @@ const CallToAction = () => (
       every week.
     </p>
     <Link className={styles.button} to="/">
-      View all remote front end jobs =>
+      View all remote front end jobs{' '}
+      <span role="img" aria-label="pointer">
+        👉
+      </span>
     </Link>
   </div>
 );

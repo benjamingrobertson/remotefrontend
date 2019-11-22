@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './banner.module.scss';
 import classnames from 'classnames';
 import useWindowWidth from '../../useWindowWidth';
@@ -15,6 +16,10 @@ const Banner = ({ location }) => {
       <a href="/post-a-job">Post a Job: Pay what you want!</a>
     </div>
   );
+};
+
+Banner.propTypes = {
+  location: PropTypes.object.isRequired
 };
 
 export default Banner;

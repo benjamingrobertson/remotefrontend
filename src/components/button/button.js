@@ -12,6 +12,10 @@ const Button = ({ text, click, to }) => (
   </button>
 );
 
-Button.propTypes = {};
+Button.propTypes = {
+  text: PropTypes.string,
+  click: PropTypes.func,
+  to: PropTypes.string
+};
 
 export default Button;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './checkout.module.scss';
 import uuid from 'uuid';
 
@@ -83,7 +84,7 @@ export default class Checkout extends Component {
     }
   }
 
-  openStripeCheckout(event) {
+  openStripeCheckout() {
     this.setState({ loading: true, buttonText: 'Loading...' });
     this.stripeHandler.open({
       name: 'Front End Remote Jobs',
@@ -97,6 +98,7 @@ export default class Checkout extends Component {
           body: JSON.stringify({
             token: token.id,
             amount: this.props.amount,
+            // eslint-disable-next-line camelcase
             idempotency_key: uuid(),
             email: token.email,
             form: this.props.formValues
@@ -112,9 +114,11 @@ export default class Checkout extends Component {
             if (res.status === 200) {
               if (typeof window !== undefined && window.gtag) {
                 window.gtag('event', 'jobPost', {
+                  /* eslint-disable camelcase */
                   event_category: 'jobPost',
                   event_action: 'success',
                   event_label: this.props.amount
+                  /* eslint-enable camelcase */
                 });
               }
               this.setState({
@@ -160,3 +164,20 @@ export default class Checkout extends Component {
     );
   }
 }
+
+Checkout.propTypes = {
+  amount: PropTypes.number,
+  /* Text for the checkout button */
+  buttonText: PropTypes.string.isRequired,
+  form: PropTypes.node,
+  formValues: PropTypes.object,
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        stripePublishableKey: PropTypes.string.isRequired,
+        purchaseEndpoint: PropTypes.string
+      })
+    })
+  }),
+  isValid: PropTypes.func
+};
