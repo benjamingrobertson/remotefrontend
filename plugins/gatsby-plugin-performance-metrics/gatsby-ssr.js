@@ -44,7 +44,7 @@ export const onRenderBody = (
                         event_category: 'Performance Metrics',
                         event_action: metricName,
                         event_value: time,
-                        nonInteraction: true
+                        non_interaction: true
                     });
                  }
             };
