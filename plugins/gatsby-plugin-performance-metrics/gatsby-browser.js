@@ -15,7 +15,6 @@ export const onInitialClientRender = async (_, pluginOptions) => {
       }
       if (useGoogleAnalytics && window.gtag) {
         /* eslint-disable camelcase */
-
         window.gtag('event', 'Performance Metrics', {
           event_category: 'Performance Metrics',
           event_action: 'first-input-delay',
