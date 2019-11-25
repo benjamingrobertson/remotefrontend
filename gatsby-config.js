@@ -83,7 +83,11 @@ module.exports = {
       options: {
         trackingIds: ['UA-43172667-7'],
         gtagConfig: {
-          anonymize_ip: true
+          anonymize_ip: true,
+          transport_type: 'beacon',
+          custom_map: {
+            'metric1': 'first_input_delay'
+          }
         },
         pluginConfig: {
           // Puts tracking script in the head instead of the body

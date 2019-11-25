@@ -20,7 +20,8 @@ export const onInitialClientRender = async (_, pluginOptions) => {
           event_action: 'first-input-delay',
           event_label: event.type,
           value: Math.round(delay),
-          non_interaction: true
+          non_interaction: true,
+          first_input_delay: Math.round(delay)
         });
         /* eslint-enable camelcase */
       }
