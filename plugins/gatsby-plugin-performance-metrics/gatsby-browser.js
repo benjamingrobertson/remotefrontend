@@ -15,12 +15,14 @@ export const onInitialClientRender = async (_, pluginOptions) => {
       }
       if (useGoogleAnalytics && window.gtag) {
         /* eslint-disable camelcase */
+
         window.gtag('event', 'Performance Metrics', {
           event_category: 'Performance Metrics',
           event_action: 'first-input-delay',
           event_label: event.type,
           value: Math.round(delay),
-          non_interaction: true
+          non_interaction: true,
+          first_input_delay: Math.round(delay)
         });
         /* eslint-enable camelcase */
       }
