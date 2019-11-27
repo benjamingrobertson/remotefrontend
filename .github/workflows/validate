@@ -23,3 +23,6 @@ jobs:
         npm run validate
       env:
         CI: true
+    - name: Lighthouse CI Action
+      uses: treosh/lighthouse-ci-action@v2
+      
