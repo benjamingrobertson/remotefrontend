@@ -116,7 +116,7 @@ exports.createPages = ({ graphql, actions }) => {
         slug
       }));
       const landingNodes = techNodes.concat(expNodes);
-      await screenshot(landingNodes, 'landing');
+      // await screenshot(landingNodes, 'landing');
 
       const postTemplate = path.resolve('./src/templates/post/post.js');
 
@@ -125,7 +125,7 @@ exports.createPages = ({ graphql, actions }) => {
         slug: node.slug,
         company: node.acf.company
       }));
-      await screenshot(jobs, 'job');
+      // await screenshot(jobs, 'job');
       _.each(result.data.jobs.edges, (edge) => {
         createPage({
           path: `/jobs/${edge.node.slug}`,
@@ -191,7 +191,7 @@ exports.createPages = ({ graphql, actions }) => {
         .concat(articles)
         .concat(otherPages);
 
-      await screenshot(pages, 'pages');
+      // await screenshot(pages, 'pages');
 
       resolve();
     });
