@@ -32,6 +32,13 @@ module.exports = {
     'gatsby-plugin-netlify-cache',
     'gatsby-plugin-advanced-sitemap',
     {
+      resolve: `gatsby-plugin-netlify-functions`,
+      options: {
+        functionsSrc: `${__dirname}/src/functions`,
+        functionsOutput: `${__dirname}/public/functions`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-performance-metrics`,
       options: {
         firstPaint: true,
