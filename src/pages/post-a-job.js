@@ -156,7 +156,7 @@ class PostAJob extends React.Component {
             To get started, fill out the form below, preview your listing, and
             submit! Most job listings are live within 24 hours.
           </p>
-          <form ref={this.form} className={styles.postJobForm} method="POST">
+          <form ref={this.form} className={styles.postJobForm} method="POST" data-netlify="true">
             <fieldset className={styles.fieldset}>
               <legend>🛠 Job Information </legend>
               <div className={styles.titleSection}>
@@ -224,6 +224,8 @@ class PostAJob extends React.Component {
                   data-hj-whitelist
                 />
               </div>
+              <input type="hidden" name="form-name" value="Post a Job" />
+
               {/* <div>
                 <label className={styles.label} htmlFor="salary">
                   Salary Info
