@@ -117,6 +117,16 @@ export default class Checkout extends Component {
                   event_label: this.props.amount
                 });
               }
+
+              fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode({ "form-name": "job-purchase", ...this.getFormValues() })
+              })
+                .then(() => console.log('success'))
+                .catch(error => console.log(error));
+
+
               this.setState({
                 disabled: true,
                 message:
