@@ -121,7 +121,7 @@ export default class Checkout extends Component {
               fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encode({ "form-name": "contact", ...this.state })
+                body: encode({ "form-name": "job-purchase", ...this.getFormValues() })
               })
                 .then(() => console.log('success'))
                 .catch(error => console.log(error));
