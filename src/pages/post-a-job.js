@@ -224,6 +224,8 @@ class PostAJob extends React.Component {
                   data-hj-whitelist
                 />
               </div>
+              <input type="hidden" name="form-name" value="Post a Job" />
+
               {/* <div>
                 <label className={styles.label} htmlFor="salary">
                   Salary Info
