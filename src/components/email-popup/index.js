@@ -14,7 +14,9 @@ const ExitIntent = () => {
     };
 
     if (width >= 1024) {
-      document.addEventListener('mouseout', handleMouseOut);
+      setTimeout(() => {
+        document.addEventListener('mouseout', handleMouseOut);
+      }, 15000)
     } else {
       setTimeout(() => {
         if (typeof window !== 'undefined') {

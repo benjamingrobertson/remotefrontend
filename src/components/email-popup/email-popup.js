@@ -19,7 +19,7 @@ const EmailPopup = () => {
       onRequestClose={() => setOpen(false)}
     >
       <h2>
-        Join <span className={styles.underline}>300+</span> front end devs
+        Join <span className={styles.underline}>600+</span> front end devs
         getting remote jobs delivered every Friday!
       </h2>
       <ul>
