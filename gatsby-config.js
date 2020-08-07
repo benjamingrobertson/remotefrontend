@@ -29,7 +29,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-catch-links',
-    'gatsby-plugin-netlify-cache',
     'gatsby-plugin-advanced-sitemap',
     {
       resolve: `gatsby-plugin-performance-metrics`,
