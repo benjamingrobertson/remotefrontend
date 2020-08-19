@@ -85,13 +85,14 @@ export default class Checkout extends Component {
 
   openStripeCheckout(event) {
     this.setState({ loading: true, buttonText: 'Loading...' });
+    const endpoint = this.props.data.site.siteMetadata.purchaseEndpoint;
     this.stripeHandler.open({
       name: 'Front End Remote Jobs',
       amount: this.props.amount,
       description: 'Job listing',
       zipCode: true,
       token: (token) => {
-        fetch(this.props.data.site.siteMetadata.purchaseEndpoint, {
+        fetch(endpoint, {
           method: 'POST',
           mode: 'no-cors',
           body: JSON.stringify({
@@ -121,7 +122,7 @@ export default class Checkout extends Component {
               fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encode({ "form-name": "job-purchase", ...this.getFormValues() })
+                body: this.encode({ "form-name": "job-purchase", ...this.getFormValues() })
               })
                 .then(() => console.log('success'))
                 .catch(error => console.log(error));
