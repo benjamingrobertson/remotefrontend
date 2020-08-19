@@ -70,7 +70,7 @@ exports.handler = function(event, context, callback) {
     );
 
     const site = await require('wpapi')
-      .discover(`http://${process.env.SRC_URL}`)
+      .discover(`https://${process.env.SRC_URL}`)
       .then((site) =>
         site.auth({
           username: process.env.auth_user,
