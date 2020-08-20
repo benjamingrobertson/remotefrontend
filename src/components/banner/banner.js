@@ -12,7 +12,7 @@ const Banner = ({ location }) => {
 
   return (
     <div className={classes}>
-      <a href="/post-a-job">Post a Job: Pay what you want!</a>
+      <a href="/post-a-job">Post a Job!</a>
     </div>
   );
 };
