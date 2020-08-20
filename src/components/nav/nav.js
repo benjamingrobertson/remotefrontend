@@ -18,7 +18,7 @@ const Links = [
     path: '/about'
   },
   {
-    title: 'Post a Job! (pay what you want)',
+    title: 'Post a Job!',
     path: '/post-a-job',
     featured: true
   }

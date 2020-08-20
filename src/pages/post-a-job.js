@@ -16,7 +16,7 @@ class PostAJob extends React.Component {
   constructor() {
     super();
     this.state = {
-      cost: 99,
+      cost: 29,
       preview: false,
       form: {
         title: '',
@@ -123,12 +123,6 @@ class PostAJob extends React.Component {
         <div className={styles.container}>
           <h1>Post a job on Front End Remote Jobs</h1>
           <p>
-            <em>
-              Now through the end of the year, all job listings are pay what you
-              want!
-            </em>
-          </p>
-          <p>
             Front end remote jobs reaches the <strong>2800+</strong> of the{' '}
             <em>best</em> front end web developers looking for remote work.
           </p>
@@ -140,7 +134,7 @@ class PostAJob extends React.Component {
           <p>
             We get thousands pageviews a month,{' '}
             <strong>2800+ unique visitors</strong>, and each listing is sent to
-            our weekly newsletter as well (276 subscribers and growing).
+            our weekly newsletter as well (767 subscribers and growing!).
           </p>
           <figure>
             <img src={pageviews} alt="8276 pageviews in October 2019" />
@@ -148,8 +142,7 @@ class PostAJob extends React.Component {
           </figure>
           <p>
             <strong>
-              Job listings last for 30 days, and <s>start at $99</s> pay what
-              you want!!
+              Job listings last for 30 days, and start at $29!
             </strong>
           </p>
           <p>
@@ -316,7 +309,7 @@ class PostAJob extends React.Component {
             </fieldset>
             <fieldset className={styles.fieldset}>
               <legend>💸 Payment</legend>
-              <div>
+              {/* <div>
                 <label className={styles.label} htmlFor="price">
                   Pay what you want pricing!!
                 </label>
@@ -338,7 +331,7 @@ class PostAJob extends React.Component {
                     data-hj-whitelist
                   />
                 </div>
-              </div>
+              </div> */}
               <Checkout
                 isValid={this.checkFormValidity}
                 form={this.form}
