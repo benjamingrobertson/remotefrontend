@@ -3,11 +3,13 @@ import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 import Form from '../newsletter-signup/form';
 import styles from './email-popup.module.scss';
+import { useNewsletterCount } from '../../useNewsletterCount';
 
 Modal.setAppElement('#___gatsby');
 
 const EmailPopup = () => {
   const [open, setOpen] = useState(true);
+  const subscribers = useNewsletterCount()
 
   return (
     <Modal
@@ -19,7 +21,7 @@ const EmailPopup = () => {
       onRequestClose={() => setOpen(false)}
     >
       <h2>
-        Join <span className={styles.underline}>767+</span> front end devs
+        Join <span className={styles.underline}>{subscribers}+</span> front end devs
         getting remote jobs delivered every Friday!
       </h2>
       <ul>

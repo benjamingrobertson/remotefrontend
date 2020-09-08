@@ -11,7 +11,8 @@ module.exports = {
     siteUrl: 'https://frontendremotejobs.com',
     description: 'Fully remote jobs for front end developers.',
     purchaseEndpoint: process.env.JOB_FORM_ENDPOINT,
-    stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY
+    stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    newsletterCount: process.env.GATSBY_NEWSLETTER_COUNT
   },
   developMiddleware: (app) => {
     app.use(
