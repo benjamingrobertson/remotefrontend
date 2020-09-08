@@ -11,7 +11,6 @@ import JobListing from '../components/job-listing/job-listing';
 import Checkout from '../components/checkout/checkout';
 import Editor from '../components/editor/editor';
 import SEO from '../components/seo';
-import { useNewsletterCount } from '../useNewsletterCount';
 
 class PostAJob extends React.Component {
   constructor() {
@@ -114,7 +113,6 @@ class PostAJob extends React.Component {
   render() {
     const { preview, form } = this.state;
     const { data } = this.props;
-    const subscribers = useNewsletterCount()
 
     return (
       <>
@@ -137,7 +135,7 @@ class PostAJob extends React.Component {
           <p>
             We get thousands pageviews a month,{' '}
             <strong>2800+ unique visitors</strong>, and each listing is sent to
-            our weekly newsletter as well ({subscribers} subscribers and growing!).
+            our weekly newsletter as well ({data.site.siteMetadata.newsletterCount} subscribers and growing!).
           </p>
           <figure>
             <img src={pageviews} alt="8276 pageviews in October 2019" />
@@ -407,6 +405,7 @@ export const query = graphql`
       siteMetadata {
         purchaseEndpoint
         stripePublishableKey
+        newsletterCount
       }
     }
   }
