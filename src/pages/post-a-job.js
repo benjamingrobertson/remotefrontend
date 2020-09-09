@@ -113,6 +113,7 @@ class PostAJob extends React.Component {
   render() {
     const { preview, form } = this.state;
     const { data } = this.props;
+
     return (
       <>
         <SEO
@@ -134,7 +135,7 @@ class PostAJob extends React.Component {
           <p>
             We get thousands pageviews a month,{' '}
             <strong>2800+ unique visitors</strong>, and each listing is sent to
-            our weekly newsletter as well (767 subscribers and growing!).
+            our weekly newsletter as well ({data.site.siteMetadata.newsletterCount} subscribers and growing!).
           </p>
           <figure>
             <img src={pageviews} alt="8276 pageviews in October 2019" />
@@ -404,6 +405,7 @@ export const query = graphql`
       siteMetadata {
         purchaseEndpoint
         stripePublishableKey
+        newsletterCount
       }
     }
   }
